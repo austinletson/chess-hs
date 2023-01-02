@@ -1,17 +1,29 @@
-module World (Test) where
+module World (World, Board, Piece, validate, CandidateMoveVector, RelativeMoveVector) where
 
-import Data.HashMap
+-- import Data.Map (Map)
+-- import qualified Data.Map as Map
 
-type Board = [[Maybe ChessPiece]]
+type Board a = [[Maybe a]]
 
-type World = (Board, (Map ChessPiece Int))
-
-data ChessPiece = Pawn | Bishop | Knight | Rook | King | Queen
+-- type World a = (Board a, Map a Int)
+type World a = (Board a, [a])
 
 -- class Piece a where
---     validate :: World -> CandidateMoveVector -> Maybe World 
+--   fakeMethod :: a -> a
 
--- data CandidateMoveVector = 
---   BoardBoard (Int, Int) (Int, Int) |
---   HandBoard Piece (Int, Int) |
+-- class Piece a where
+--     validate :: World a -> Move -> Maybe (World a)
+
+type Validation a = World a -> Move -> Maybe (World a)
+
+
+type RelativeMoveVector = (Int, Int)
+type BoardPosition = (Int, Int)
+
+type Move = (BoardPosition, RelativeMoveVector)
+
+data CandidateMoveVector = 
+  BoardBoard (Int, Int) (Int, Int) |
+  BoardHand (Int, Int) Int |
+  HandBoard Int (Int, Int)
   
