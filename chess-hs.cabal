@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Lib
+      World
   other-modules:
       Paths_chess_hs
   hs-source-dirs:
