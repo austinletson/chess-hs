@@ -11,8 +11,8 @@ type World a = (Board a, [a])
 -- class Piece a where
 --   fakeMethod :: a -> a
 
--- class Piece a where
---     validate :: World a -> Move -> Maybe (World a)
+class Piece a where
+    validate :: World a -> Move -> Maybe (World a)
 
 type Validation a = World a -> Move -> Maybe (World a)
 

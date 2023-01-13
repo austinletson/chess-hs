@@ -16,7 +16,7 @@ chessHand = Map.fromList $ zip [Pawn ..] (repeat 0)
 data ChessPiece = Pawn | Bishop | Knight | Rook | King | Queen deriving (Enum, Eq, Ord, Show)
 
 instance Piece ChessPiece where
-  validate =  
+  validate = 
 
 chessMoveVectors :: ChessPiece -> [RelativeMoveVector]
 chessMoveVectors piece
